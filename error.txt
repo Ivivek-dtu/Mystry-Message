@@ -1,0 +1,4 @@
+resend ki declaration mai error tha "lib/resend.ts"
+message: Message[] isme shyd error aa skta hai  "types/ApiResponse.ts"
+"app/verify-code/route" route mai zod ki verification ki hai shyd glt hoskta hai params mai jaise data lia hai vo 
+"app/verify-code/route" user lia hai jiski isverified field false ho shyd error aye 
