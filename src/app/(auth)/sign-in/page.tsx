@@ -31,11 +31,14 @@ export default function SignInForm() {
 
   const { toast } = useToast();
   const onSubmit = async (data: z.infer<typeof signInSchema>) => {
+    console.log("Submitting data:", data); // Debugging log
     const result = await signIn('credentials', {
       redirect: false,
       identifier: data.identifier,
       password: data.password,
     });
+
+    console.log("Sign-in result:", result); // Debugging log
 
     if (result?.error) {
       if (result.error === 'CredentialsSignin') {
@@ -75,7 +78,7 @@ export default function SignInForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel htmlFor="identifier">Email/Username</FormLabel>
-                  <Input {...field} />
+                  <Input id="identifier" {...field} />
                   <FormMessage />
                 </FormItem>
               )}
@@ -86,7 +89,7 @@ export default function SignInForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel htmlFor="password">Password</FormLabel>
-                  <Input type="password" {...field} />
+                  <Input type="password" id="password" {...field} />
                   <FormMessage />
                 </FormItem>
               )}
